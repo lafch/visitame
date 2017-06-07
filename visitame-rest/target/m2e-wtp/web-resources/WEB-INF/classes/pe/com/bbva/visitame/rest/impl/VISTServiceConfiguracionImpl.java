@@ -38,9 +38,9 @@ public class VISTServiceConfiguracionImpl implements IVISTServiceConfiguracion {
 	@Override
 	public Map<String, List<Valor>> obtenerValores(String codigoLista) throws ValidacionException, NegocioException {
 		logger.info(LOG_PROMPT + "Inicio de consulta de valores con codigo de lista: " + codigoLista);
-		logger.debug(LOG_PROMPT + " DEBUG->Inicio de consulta de valores con codigo de lista: " + codigoLista);
-		logger.error(LOG_PROMPT + " ERROR->Inicio de consulta de valores con codigo de lista: " + codigoLista);
-		logger.trace(LOG_PROMPT + " TRACE->Inicio de consulta de valores con codigo de lista: " + codigoLista);
+		if(StringUtils.isBlank(codigoLista)){
+			throw new ValidacionException(400, "Error en codigoLista", "El codigo de lista a consultar no puede ser vacío o nulo");
+		}
 		List<Valor> valores;
 		valores = configuracionService.listarValores(codigoLista);
 		Map<String, List<Valor>> mapValores = new HashMap<String, List<Valor>>();
