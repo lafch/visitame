@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+	        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	 <session-factory name="visitame-session-factory">
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.jdbc.batch_size">100</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="use_sql_comments">true</property>
+<!-- 		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property> -->
+<!-- 		<property name="hibernate.cache.use_second_level_cache">true</property> -->
+<!--         <property name="hibernate.cache.use_query_cache">true</property> -->
+        <!-- <property name="net.sf.ehcache.configurationResourceName">/ehcache.xml</property> -->
+<!--         <property name="hibernate.generate_statistics">true</property> -->
+		<mapping class="pe.com.bbva.visitame.dominio.Lista" />
+		<mapping class="pe.com.bbva.visitame.dominio.Parametro" />
+		<mapping class="pe.com.bbva.visitame.dominio.Valor" />
+<!-- 		<mapping class="pe.com.bbva.pic.dominio.Base" />
+		<mapping class="pe.com.bbva.pic.dominio.Centro" />
+		<mapping class="pe.com.bbva.pic.dominio.Componente" />
+		<mapping class="pe.com.bbva.pic.dominio.Empresa" />
+		<mapping class="pe.com.bbva.pic.dominio.Lista" />
+		<mapping class="pe.com.bbva.pic.dominio.Oficina" />
+		<mapping class="pe.com.bbva.pic.dominio.Parametro" />
+		<mapping class="pe.com.bbva.pic.dominio.Perfil" />
+		<mapping class="pe.com.bbva.pic.dominio.Puesto" />
+		<mapping class="pe.com.bbva.pic.dominio.Persona" />
+		<mapping class="pe.com.bbva.pic.dominio.Emisora" />
+		<mapping class="pe.com.bbva.pic.dominio.Territorio" />
+		<mapping class="pe.com.bbva.pic.dominio.UnidadGestora" />
+		<mapping class="pe.com.bbva.pic.dominio.Usuario" />
+		<mapping class="pe.com.bbva.pic.dominio.Valor" />
+		
+		<mapping class="pe.com.bbva.pic.dominio.Prospecto" />
+		<mapping class="pe.com.bbva.pic.dominio.Subproducto" />
+		<mapping class="pe.com.bbva.pic.dominio.Accion" />
+		<mapping class="pe.com.bbva.pic.dominio.Departamento" />
+		<mapping class="pe.com.bbva.pic.dominio.Temporada" />
+		<mapping class="pe.com.bbva.pic.dominio.Persona" />
+		<mapping class="pe.com.bbva.pic.dominio.Producto" />
+		<mapping class="pe.com.bbva.pic.dominio.Familia" />
+		<mapping class="pe.com.bbva.pic.dominio.Campanha" />
+		<mapping class="pe.com.bbva.pic.dominio.Segmento" />
+		<mapping class="pe.com.bbva.pic.dominio.Cita" /> -->
+	</session-factory>
+</hibernate-configuration>

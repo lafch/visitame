@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration name="visitameLog4jConfig" status="WARN"
-	packages="pe.com.bbva.visitame"><!-- strict="true" monitorInterval="30" -->
+<Configuration name="visitameLog4jConfig" status="WARN" packages="pe.com.bbva.visitame"><!-- strict="true" monitorInterval="30" -->
+    <Properties>
+    	<Property name="patternCharset">UTF-8</Property>
+    	<Property name="logDir">/opt/jboss/aplicativos/log/visitame/</Property>
+    </Properties>
 	<Appenders>
+		<Console name="consola" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p - %m%n" />
+		</Console>
+		
 		<RollingFile name="visitameAppender"
-			fileName="/opt/jboss/aplicativos/log/visitame/visitame-rest.log"
-			filePattern="/opt/jboss/aplicativos/log/visitame/visitame-rest-%i.log"
+			fileName="${logDir}visitame-rest.log"
+			filePattern="${logDir}visitame-rest-%i.log"
 			immediateFlush="false" append="true">
 			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p - %m%n" />
 			<Policies>
@@ -12,12 +19,10 @@
 			</Policies>
 			<DefaultRolloverStrategy max="20" />
 		</RollingFile>
-		<Console name="consola" target="SYSTEM_OUT">
-			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p - %m%n" />
-		</Console>
+		
 		<RollingFile name="jdbcAppender"
-			fileName="/opt/jboss/aplicativos/log/visitame/visitame-jdbc-rest.log"
-			filePattern="/opt/jboss/aplicativos/log/visitame/visitame-jdbc-rest-%i.log"
+			fileName="${logDir}visitame-jdbc-rest.log"
+			filePattern="${logDir}visitame-jdbc-rest-%i.log"
 			immediateFlush="false" append="true">
 			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p - %m%n" />
 			<Policies>
@@ -27,21 +32,15 @@
 		</RollingFile>
 	</Appenders>
 	<Loggers>
-		<AsyncLogger name="pe.com.bbva.visitame" level="info"
-			includeLocation="true" additivity="false">
-			<AppenderRef ref="visitameAppender" />
-		</AsyncLogger>
-		<logger name="log4jdbc.log4j2"  level="info" includeLocation="false"
-			additivity="false">
-			<MarkerFilter marker="LOG4JDBC_NON_STATEMENT" onMatch="DENY"
-				onMismatch="NEUTRAL" />
-			<appender-ref ref="consola" />
-			<appender-ref ref="jdbcAppender" />
+		<logger name="log4jdbc.log4j2" level="info" includeLocation="false" additivity="false">
+        	<MarkerFilter marker="LOG4JDBC_NON_STATEMENT" onMatch="DENY" onMismatch="NEUTRAL"/>
+			<appender-ref ref="consola"/> 
+			<appender-ref ref="jdbcAppender"/>
 		</logger>
-
-		<AsyncRoot level="error" includeLocation="false" additivity="false">
-			<AppenderRef ref="visitameAppender" />
+		<AsyncRoot level="error" 
+				   includeLocation="false" 
+				   additivity="false">
+				   <AppenderRef ref="visitameAppender"/>
 		</AsyncRoot>
-		
 	</Loggers>
 </Configuration>
