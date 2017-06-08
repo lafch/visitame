@@ -3,7 +3,7 @@
   <parent>
     <groupId>pe.com.bbva.visitame</groupId>
     <artifactId>visitame-project</artifactId>
-    <version>1</version>
+    <version>1.0</version>
   </parent>
   <artifactId>visitame-dominio</artifactId>
   
@@ -54,5 +54,20 @@
 	    <version>2.1.PERU</version>
 	</dependency>
   </dependencies>
+  <build>
+	 	<finalName>VISITAMEMOVIL</finalName>
+	    <plugins>
+	      <plugin>
+	      	<groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>3.0</version>
+	        <configuration>
+	        	<encoding>${project.encoding}</encoding>
+	          	<source>${project.source.version}</source>
+				<target>${project.target.version}</target>
+	        </configuration>
+	      </plugin>
+	    </plugins>
+	  </build>
   
 </project>

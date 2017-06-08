@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>pe.com.bbva.visitame</groupId>
   <artifactId>visitame-project</artifactId>
-  <version>1</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
   <name>visitame-project</name>
   <properties>
